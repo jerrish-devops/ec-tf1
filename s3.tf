@@ -6,6 +6,7 @@ resource "aws_s3_bucket" "demo_bucket1" {
   }
 }
 
+/*
 resource "aws_s3_bucket" "demo_bucket2" {
   bucket = "jerrish-tf-class-singapore12"
   force_destroy = true
@@ -14,3 +15,4 @@ resource "aws_s3_bucket" "demo_bucket2" {
   }
   provider = aws.account1-singapore
 }
+*/

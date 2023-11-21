@@ -12,6 +12,7 @@ resource "aws_instance" "demo_instance1" {
 }
 
 #This resource creates an ec2 amazon linux instance in singapore region
+/*
 resource "aws_instance" "demo_instance2" {
   ami           = "ami-02453f5468b897e31"
   instance_type = "t2.micro" 
@@ -21,3 +22,4 @@ resource "aws_instance" "demo_instance2" {
   }
   provider = aws.account1-singapore
 }
+*/
