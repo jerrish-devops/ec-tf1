@@ -7,8 +7,7 @@ resource "aws_instance" "demo_instance1" {
     Name    = "linux-webserver-mumbai"
     Project = "projecta"
   }
-  subnet_id              = "subnet-0453673da9a08bfd1"
-  vpc_security_group_ids = ["sg-0f17b7be16cedabbe"]
+  subnet_id              = aws_subnet.demo_subnet_public1.id
 }
 
 #This resource creates an ec2 amazon linux instance in singapore region
