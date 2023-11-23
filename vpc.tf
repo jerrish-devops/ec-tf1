@@ -14,6 +14,7 @@ resource "aws_subnet" "demo_subnet_public1" {
   }
   availability_zone = "ap-south-1a"
   cidr_block = "192.168.100.0/26"
+  map_public_ip_on_launch = true
 }
 
 resource "aws_subnet" "demo_subnet_public2" {
@@ -23,6 +24,7 @@ resource "aws_subnet" "demo_subnet_public2" {
   }
   availability_zone = "ap-south-1b"
   cidr_block = "192.168.100.64/26"
+  map_public_ip_on_launch = true
 }
 
 resource "aws_subnet" "demo_subnet_private1" {
@@ -59,4 +61,21 @@ resource "aws_default_route_table" "demo_default_rt" {
   tags = {
     Name = "tf-vpc-main-rt"
   }
+}
+
+resource "aws_route_table" "demo_private_rt" {
+  tags = {
+    Name = "tf-vpc-private-rt"
+  }
+  vpc_id = aws_vpc.demo_vpc.id
+}
+
+resource "aws_route_table_association" "associate_private1" {
+  subnet_id      = aws_subnet.demo_subnet_private1.id
+  route_table_id = aws_route_table.demo_private_rt.id
+}
+
+resource "aws_route_table_association" "associate_private2" {
+  subnet_id      = aws_subnet.demo_subnet_private2.id
+  route_table_id = aws_route_table.demo_private_rt.id
 }

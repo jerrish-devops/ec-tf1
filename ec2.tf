@@ -8,6 +8,7 @@ resource "aws_instance" "demo_instance1" {
     Project = "projecta"
   }
   subnet_id              = aws_subnet.demo_subnet_public1.id
+  vpc_security_group_ids = [aws_security_group.demo_sg.id]
 }
 
 #This resource creates an ec2 amazon linux instance in singapore region
