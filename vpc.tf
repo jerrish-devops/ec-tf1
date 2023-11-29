@@ -5,6 +5,7 @@ resource "aws_vpc" "demo_vpc" {
   cidr_block = "192.168.100.0/24"
   instance_tenancy = "default"
   enable_dns_hostnames = true
+  depends_on = [ aws_s3_bucket.demo_bucket1 ]
 }
 
 resource "aws_subnet" "demo_subnet_public1" {

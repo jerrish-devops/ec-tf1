@@ -1,7 +1,7 @@
 #This resource creates an ec2 amazon linux instance in mumbai region
 resource "aws_instance" "demo_instance1" {
-  ami           = "ami-0645cf88151eb2007"
-  instance_type = "t2.micro" 
+  ami           = var.ami
+  instance_type = var.instance_type
   key_name      = "awsclass-mumbai-kp"             #this key must exist in mumbai region
   tags = {
     Name    = "linux-webserver-mumbai"
