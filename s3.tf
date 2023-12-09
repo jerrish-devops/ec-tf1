@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "demo_bucket1" {
-  bucket = "jerrish-tf-class-mumbai"
-  force_destroy = true
+  bucket = var.s3_var[0]
+  force_destroy = var.s3_var[1]
   tags = {
     Name = "testing-bucket"
   }

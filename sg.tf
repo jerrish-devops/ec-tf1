@@ -28,9 +28,9 @@ resource "aws_security_group" "demo_sg" {
   }
 
   ingress {
-    description      = "allow nfs"
-    from_port        = 2049
-    to_port          = 2049
+    description      = "allow rds"
+    from_port        = 3306
+    to_port          = 3306
     protocol         = "tcp"
     cidr_blocks      = [var.allow_specific]
   }
